@@ -6,12 +6,11 @@
 package ua.telnumberident.ruslan;
 
 import java.io.Serializable;
-
 /**
  *
  * @author ruslan
  */
-public class TelephoneNumberIdentUA implements ITelephoneProviderIdent, Cloneable, Serializable {
+public class TelephoneNumberIdentUA implements ITelephoneProviderIdent, Serializable {
             
     static private PhoneProvider providersList[] = null;
     
@@ -49,16 +48,7 @@ public class TelephoneNumberIdentUA implements ITelephoneProviderIdent, Cloneabl
         }
     }
     
-    /**
-     *
-     * @return
-     * @throws CloneNotSupportedException
-     */
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return createInstance();                
-    }
-    
+   
     protected Object readResolve() {
         return createInstance();
     }
@@ -71,7 +61,7 @@ public class TelephoneNumberIdentUA implements ITelephoneProviderIdent, Cloneabl
         private static final TelephoneNumberIdentUA instance = new TelephoneNumberIdentUA();
     }
 
-    static TelephoneNumberIdentUA createInstance() {
+    static public TelephoneNumberIdentUA createInstance() {
         return LazyInit.instance;
     }
     
