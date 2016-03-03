@@ -5,12 +5,11 @@
  */
 package ua.telnumberident.ruslan;
 
-import java.io.Serializable;
 /**
  *
  * @author ruslan
  */
-public class TelephoneNumberIdentUA implements ITelephoneProviderIdent, Serializable {
+public class TelephoneNumberIdentUA implements ITelephoneProviderIdent {
             
     static private PhoneProvider providersList[] = null;
     
