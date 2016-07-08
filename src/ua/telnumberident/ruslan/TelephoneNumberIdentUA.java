@@ -5,11 +5,13 @@
  */
 package ua.telnumberident.ruslan;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ruslan
  */
-public class TelephoneNumberIdentUA implements ITelephoneProviderIdent {
+public class TelephoneNumberIdentUA implements ITelephoneProviderIdent, Cloneable, Serializable {
             
     static private PhoneProvider providersList[] = null;
     
@@ -47,7 +49,16 @@ public class TelephoneNumberIdentUA implements ITelephoneProviderIdent {
         }
     }
     
-   
+    /**
+     *
+     * @return
+     * @throws CloneNotSupportedException
+     */
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return createInstance();                
+    }
+    
     protected Object readResolve() {
         return createInstance();
     }
@@ -66,7 +77,7 @@ public class TelephoneNumberIdentUA implements ITelephoneProviderIdent {
     
     /**
      *
-     * @param number PhoneNumber
+     * @param PhoneNumber number
      * @return PhoneProvider[]
      */
     @Override
@@ -79,7 +90,7 @@ public class TelephoneNumberIdentUA implements ITelephoneProviderIdent {
     
     /**
      * 
-     * @param number PhoneNumber
+     * @param PhoneNumber number
      * @return PhoneMaskItem []
      */
     @Override
